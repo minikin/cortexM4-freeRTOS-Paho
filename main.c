@@ -298,6 +298,7 @@ static UBaseType_t ulNextRand;
 /* See http://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_TCP/TCP-IP_FAT_Examples_ST_STM32F407.html */
 int main( void )
 {
+        FreeRTOS_printf( ( "FreeRTOS is HERE!" ) );
 	/* Miscellaneous initialisation including preparing the logging and seeding
 	the random number generator. */
 	prvMiscInitialisation();
