@@ -1,0 +1,432 @@
+<!DOCTYPE CrossStudio_Project_File>
+<solution Name="avianFreeRTOSPaho" target="8" version="2">
+  <project Name="avianFreeRTOSPaho">
+    <configuration
+      Family="STM32"
+      Name="Common"
+      Placement="Flash"
+      Target="STM32F407IG"
+      arm_architecture="v7EM"
+      arm_core_type="Cortex-M4"
+      arm_fp_abi="Hard"
+      arm_fpu_type="FPv4-SP-D16"
+      arm_linker_heap_size="128"
+      arm_linker_jtag_pad_pre_dr="1"
+      arm_linker_jtag_pad_pre_ir="5"
+      arm_linker_process_stack_size="0"
+      arm_linker_stack_size="256"
+      arm_simulator_memory_simulation_filename="$(TargetsDir)/STM32/STM32SimulatorMemory$(HostDLL)"
+      arm_simulator_memory_simulation_parameter="STM32F407IG;0x100000;0x20000"
+      arm_target_connect_with_reset="No"
+      arm_target_debug_interface_type="ADIv5"
+      arm_target_interface_type="Default"
+      arm_target_loader_applicable_loaders="Flash"
+      arm_target_loader_default_loader="Flash"
+      arm_target_restrict_memory_accesses="Yes"
+      c_user_include_directories="$(TargetsDir)/STM32/include;$(PackagesDir)/CMSIS_4/CMSIS/Include"
+      debug_register_definition_file="$(TargetsDir)/STM32/STM32F401xE_Peripherals.xml"
+      linker_memory_map_file="$(TargetsDir)/STM32/STM32F407IG_MemoryMap.xml"
+      linker_output_format="bin"
+      linker_section_placement_file="$(StudioDir)/targets/Cortex_M/flash_placement.xml"
+      macros="DeviceVectorsFile=STM32F401xE.vec"
+      project_directory=""
+      project_type="Executable"
+      property_groups_file_path="$(TargetsDir)/STM32/propertyGroups.xml"
+      target_get_partname_script="GetPartName()"
+      target_match_partname_script="MatchPartName(&quot;$(Target)&quot;)"
+      target_script_file="$(TargetsDir)/STM32/STM32_Target.js"
+      target_trace_initialize_script="EnableTrace(&quot;$(TraceInterfaceType)&quot;)" />
+    <configuration
+      Name="Flash"
+      arm_target_flash_loader_file_path="$(TargetsDir)/STM32/Release/STM32F2xx_Loader_rpc.elf"
+      arm_target_loader_can_erase_all="Yes"
+      arm_target_loader_can_lock_all="No"
+      arm_target_loader_can_lock_range="No"
+      arm_target_loader_can_unlock_all="No"
+      arm_target_loader_can_unlock_range="No"
+      target_reset_script="FLASHReset()" />
+    <configuration Name="RAM" target_reset_script="Reset()" />
+    <folder Name="Source Files">
+      <configuration Name="Common" filter="c;cpp;cxx;cc;h;s;asm;inc" />
+      <folder Name="FreeRTOS">
+        <folder Name="Source">
+          <file file_name="croutine.c" />
+          <file file_name="event_groups.c" />
+          <file file_name="list.c" />
+          <file file_name="queue.c" />
+          <file file_name="tasks.c" />
+          <file file_name="timers.c" />
+          <folder Name="include">
+            <file file_name="FreeRTOS.h" />
+            <file file_name="StackMacros.h" />
+            <file file_name="croutine.h" />
+            <file file_name="deprecated_definitions.h" />
+            <file file_name="event_groups.h" />
+            <file file_name="list.h" />
+            <file file_name="mpu_prototypes.h" />
+            <file file_name="mpu_wrappers.h" />
+            <file file_name="portable.h" />
+            <file file_name="projdefs.h" />
+            <file file_name="queue.h" />
+            <file file_name="semphr.h" />
+            <file file_name="task.h" />
+            <file file_name="timers.h" />
+          </folder>
+          <folder Name="portable">
+            <folder Name="MemMang">
+              <file file_name="heap_4.c">
+                <configuration
+                  Name="THUMB Debug"
+                  build_exclude_from_build="Yes" />
+              </file>
+              <file file_name="heap_5.c" />
+            </folder>
+            <folder Name="GCC">
+              <folder Name="ARM_CM4F">
+                <file file_name="port.c" />
+                <file file_name="portmacro.h" />
+              </folder>
+            </folder>
+          </folder>
+        </folder>
+      </folder>
+      <folder Name="FreeRTOS-Plus">
+        <folder Name="Source">
+          <folder Name="FreeRTOS-Plus-FAT">
+            <folder Name="include">
+              <file file_name="FreeRTOSFATConfigDefaults.h" />
+              <file file_name="FreeRTOS_errno_FAT.h" />
+              <file file_name="ff_crc.h" />
+              <file file_name="ff_devices.h" />
+              <file file_name="ff_dir.h" />
+              <file file_name="ff_error.h" />
+              <file file_name="ff_fat.h" />
+              <file file_name="ff_fatdef.h" />
+              <file file_name="ff_file.h" />
+              <file file_name="ff_format.h" />
+              <file file_name="ff_headers.h" />
+              <file file_name="ff_ioman.h" />
+              <file file_name="ff_locking.h" />
+              <file file_name="ff_memory.h" />
+              <file file_name="ff_old_config_defines.h" />
+              <file file_name="ff_stdio.h" />
+              <file file_name="ff_string.h" />
+              <file file_name="ff_sys.h" />
+              <file file_name="ff_time.h" />
+            </folder>
+            <folder Name="portable">
+              <folder Name="common">
+                <file file_name="ff_ramdisk.c" />
+                <file file_name="ff_ramdisk.h" />
+                <file file_name="ff_sddisk.h" />
+              </folder>
+              <folder Name="STM32F4xx">
+                <file file_name="ff_sddisk.c" />
+                <file file_name="stm32f4xx_hal_sd.c">
+                  <configuration
+                    Name="THUMB Debug"
+                    build_exclude_from_build="Yes" />
+                </file>
+              </folder>
+            </folder>
+            <file file_name="ff_crc.c" />
+            <file file_name="ff_dev_support.c">
+              <configuration
+                Name="THUMB Debug"
+                build_exclude_from_build="Yes" />
+            </file>
+            <file file_name="ff_dir.c" />
+            <file file_name="ff_error.c" />
+            <file file_name="ff_fat.c" />
+            <file file_name="ff_file.c" />
+            <file file_name="ff_format.c" />
+            <file file_name="ff_ioman.c" />
+            <file file_name="ff_locking.c" />
+            <file file_name="ff_memory.c" />
+            <file file_name="ff_stdio.c" />
+            <file file_name="ff_string.c" />
+            <file file_name="ff_sys.c" />
+            <file file_name="ff_time.c" />
+            <configuration Name="THUMB Debug" build_exclude_from_build="No" />
+          </folder>
+          <folder Name="FreeRTOS-Plus-TCP">
+            <folder Name="include">
+              <file file_name="FreeRTOSIPConfigDefaults.h" />
+              <file file_name="FreeRTOS_ARP.h" />
+              <file file_name="FreeRTOS_DHCP.h" />
+              <file file_name="FreeRTOS_DNS.h" />
+              <file file_name="FreeRTOS_IP.h" />
+              <file file_name="FreeRTOS_IP_Private.h" />
+              <file file_name="FreeRTOS_Sockets.h" />
+              <file file_name="FreeRTOS_Stream_Buffer.h" />
+              <file file_name="FreeRTOS_TCP_IP.h" />
+              <file file_name="FreeRTOS_TCP_WIN.h" />
+              <file file_name="FreeRTOS_UDP_IP.h" />
+              <file file_name="FreeRTOS_errno_TCP.h" />
+              <file file_name="IPTraceMacroDefaults.h" />
+              <file file_name="NetworkBufferManagement.h" />
+              <file file_name="NetworkInterface.h" />
+            </folder>
+            <folder Name="portable">
+              <folder Name="BufferManagement">
+                <file file_name="BufferAllocation_1.c">
+                  <configuration
+                    Name="THUMB Debug"
+                    build_exclude_from_build="Yes" />
+                </file>
+                <file file_name="BufferAllocation_2.c">
+                  <configuration
+                    Name="THUMB Debug"
+                    build_exclude_from_build="No" />
+                </file>
+              </folder>
+              <folder Name="Compiler">
+                <folder Name="GCC">
+                  <file file_name="pack_struct_end.h" />
+                  <file file_name="pack_struct_start.h" />
+                </folder>
+              </folder>
+              <folder Name="NetworkInterface">
+                <folder Name="STM32Fxx">
+                  <file file_name="NetworkInterface.c" />
+                </folder>
+              </folder>
+            </folder>
+            <folder Name="protocols">
+              <folder Name="Common">
+                <file file_name="FreeRTOS_TCP_server.c" />
+              </folder>
+              <folder Name="FTP">
+                <file file_name="FreeRTOS_FTP_commands.c" />
+                <file file_name="FreeRTOS_FTP_server.c" />
+              </folder>
+              <folder Name="HTTP">
+                <file file_name="FreeRTOS_HTTP_commands.c" />
+                <file file_name="FreeRTOS_HTTP_server.c" />
+              </folder>
+              <folder Name="include">
+                <file file_name="FreeRTOS_FTP_commands.h" />
+                <file file_name="FreeRTOS_HTTP_commands.h" />
+                <file file_name="FreeRTOS_TCP_server.h" />
+                <file file_name="FreeRTOS_server_private.h" />
+                <file file_name="NTPClient.h" />
+                <file file_name="NTPDemo.h" />
+              </folder>
+              <folder Name="NTP">
+                <file file_name="NTPDemo.c" />
+              </folder>
+            </folder>
+            <file file_name="FreeRTOS_ARP.c" />
+            <file file_name="FreeRTOS_DHCP.c" />
+            <file file_name="FreeRTOS_DNS.c" />
+            <file file_name="FreeRTOS_IP.c" />
+            <file file_name="FreeRTOS_Sockets.c" />
+            <file file_name="FreeRTOS_Stream_Buffer.c" />
+            <file file_name="FreeRTOS_TCP_IP.c" />
+            <file file_name="FreeRTOS_TCP_WIN.c" />
+            <file file_name="FreeRTOS_UDP_IP.c" />
+            <configuration Name="THUMB Debug" build_exclude_from_build="No" />
+          </folder>
+        </folder>
+      </folder>
+      <folder Name="Demo">
+        <folder Name="Common">
+          <folder Name="Utilities">
+            <file file_name="UDPLoggingPrintf.c" />
+            <file file_name="date_and_time.c" />
+            <file file_name="printf-stdarg.c" />
+            <folder Name="include">
+              <file file_name="UDPLoggingPrintf.h" />
+              <file file_name="date_and_time.h" />
+            </folder>
+            <configuration Name="THUMB Debug" build_exclude_from_build="No" />
+          </folder>
+          <folder Name="FreeRTOS_Plus_TCP_Demos">
+            <folder Name="include">
+              <folder Name="HTML_for_default_web_pages">
+                <file file_name="ftp.png" />
+                <file file_name="index.html" />
+                <file file_name="logo.jpg" />
+              </folder>
+              <file file_name="DefaultWebPages.h" />
+              <file file_name="SimpleTCPEchoServer.h" />
+              <file file_name="TCPEchoClient_SingleTasks.h" />
+              <file file_name="TFTPServer.h" />
+            </folder>
+            <folder Name="TraceMacros">
+              <folder Name="Example1">
+                <file file_name="DemoIPTrace.c" />
+                <file file_name="DemoIPTrace.h" />
+              </folder>
+            </folder>
+            <file file_name="SimpleTCPEchoServer.c" />
+            <file file_name="TCPEchoClient_SingleTasks.c" />
+            <file file_name="TFTPServer.c" />
+            <configuration Name="THUMB Debug" build_exclude_from_build="No" />
+          </folder>
+          <folder Name="FreeRTOS_Plus_FAT_Demos">
+            <file file_name="CreateAndVerifyExampleFiles.c" />
+            <folder Name="test">
+              <file file_name="ff_stdio_tests_with_cwd.c" />
+            </folder>
+            <configuration Name="THUMB Debug" build_exclude_from_build="No" />
+          </folder>
+          <configuration Name="THUMB Debug" build_exclude_from_build="No" />
+        </folder>
+        <folder Name="FreeRTOS_Plus_TCP_and_FAT_STM32F4xxx">
+          <folder Name="src">
+            <folder Name="Drivers">
+              <folder Name="CMSIS">
+                <folder Name="Include">
+                  <file file_name="arm_common_tables.h" />
+                  <file file_name="arm_const_structs.h" />
+                  <file file_name="core_cm4.h" />
+                  <file file_name="core_cmFunc.h" />
+                  <file file_name="core_cmInstr.h" />
+                  <file file_name="core_cmSimd.h" />
+                  <file file_name="core_sc000.h" />
+                  <file file_name="core_sc300.h" />
+                </folder>
+                <folder Name="Device">
+                  <folder Name="Include">
+                    <file file_name="stm32f407xx.h" />
+                    <file file_name="stm32f4xx.h" />
+                    <file file_name="system_stm32f4xx.h" />
+                  </folder>
+                  <folder Name="Source">
+                    <file file_name="system_stm32f4xx.c" />
+                    <folder Name="gcc">
+                      <file file_name="startup_stm32f407xx.S">
+                        <configuration
+                          Name="THUMB Debug"
+                          build_exclude_from_build="Yes" />
+                      </file>
+                    </folder>
+                  </folder>
+                </folder>
+              </folder>
+              <folder Name="STM32F4xx_HAL_Driver">
+                <folder Name="Inc">
+                  <file file_name="stm32f4xx_hal.h" />
+                  <file file_name="stm32f4xx_hal_conf_template.h" />
+                  <file file_name="stm32f4xx_hal_cortex.h" />
+                  <file file_name="stm32f4xx_hal_def.h" />
+                  <file file_name="stm32f4xx_hal_dma.h" />
+                  <file file_name="stm32f4xx_hal_dma_ex.h" />
+                  <file file_name="stm32f4xx_hal_eth.h" />
+                  <file file_name="stm32f4xx_hal_flash.h" />
+                  <file file_name="stm32f4xx_hal_flash_ex.h" />
+                  <file file_name="stm32f4xx_hal_flash_ramfunc.h" />
+                  <file file_name="stm32f4xx_hal_gpio.h" />
+                  <file file_name="stm32f4xx_hal_gpio_ex.h" />
+                  <file file_name="stm32f4xx_hal_nor.h" />
+                  <file file_name="stm32f4xx_hal_pwr.h" />
+                  <file file_name="stm32f4xx_hal_pwr_ex.h" />
+                  <file file_name="stm32f4xx_hal_rcc.h" />
+                  <file file_name="stm32f4xx_hal_rcc_ex.h" />
+                  <file file_name="stm32f4xx_hal_rng.h" />
+                  <file file_name="stm32f4xx_hal_rtc.h" />
+                  <file file_name="stm32f4xx_hal_rtc_ex.h" />
+                  <file file_name="stm32f4xx_hal_sd.h" />
+                  <file file_name="stm32f4xx_hal_sdram.h" />
+                  <file file_name="stm32f4xx_hal_sram.h" />
+                  <file file_name="stm32f4xx_hal_tim.h" />
+                  <file file_name="stm32f4xx_hal_tim_ex.h" />
+                  <file file_name="stm32f4xx_ll_fsmc.h" />
+                  <file file_name="stm32f4xx_ll_sdmmc.h" />
+                  <folder Name="Legacy">
+                    <file file_name="stm32_hal_legacy.h" />
+                  </folder>
+                </folder>
+                <folder Name="Src">
+                  <file file_name="stm32f4xx_hal.c" />
+                  <file file_name="stm32f4xx_hal_cortex.c" />
+                  <file file_name="stm32f4xx_hal_dma.c" />
+                  <file file_name="stm32f4xx_hal_dma_ex.c" />
+                  <file file_name="stm32f4xx_hal_eth.c" />
+                  <file file_name="stm32f4xx_hal_flash.c" />
+                  <file file_name="stm32f4xx_hal_flash_ex.c" />
+                  <file file_name="stm32f4xx_hal_flash_ramfunc.c" />
+                  <file file_name="stm32f4xx_hal_gpio.c" />
+                  <file file_name="stm32f4xx_hal_nor.c" />
+                  <file file_name="stm32f4xx_hal_pwr.c" />
+                  <file file_name="stm32f4xx_hal_pwr_ex.c" />
+                  <file file_name="stm32f4xx_hal_rcc.c" />
+                  <file file_name="stm32f4xx_hal_rcc_ex.c" />
+                  <file file_name="stm32f4xx_hal_rng.c" />
+                  <file file_name="stm32f4xx_hal_rtc.c" />
+                  <file file_name="stm32f4xx_hal_rtc_ex.c" />
+                  <file file_name="stm32f4xx_hal_sd.c" />
+                  <file file_name="stm32f4xx_hal_sram.c" />
+                  <file file_name="stm32f4xx_hal_tim.c" />
+                  <file file_name="stm32f4xx_hal_tim_ex.c" />
+                  <file file_name="stm32f4xx_hal_uart.c" />
+                  <file file_name="stm32f4xx_ll_sdmmc.c" />
+                </folder>
+              </folder>
+              <configuration
+                Name="THUMB Debug"
+                build_exclude_from_build="No" />
+            </folder>
+            <file file_name="FreeRTOSConfig.h" />
+            <file file_name="FreeRTOSFATConfig.h">
+              <configuration
+                Name="THUMB Debug"
+                build_exclude_from_build="No" />
+            </file>
+            <file file_name="FreeRTOSIPConfig.h">
+              <configuration
+                Name="THUMB Debug"
+                build_exclude_from_build="No" />
+            </file>
+            <file file_name="hr_gettime.c">
+              <configuration
+                Name="THUMB Debug"
+                build_exclude_from_build="No" />
+            </file>
+            <file file_name="hr_gettime.h">
+              <configuration
+                Name="THUMB Debug"
+                build_exclude_from_build="No" />
+            </file>
+            <file file_name="main.c" />
+            <file file_name="stm32f4xx_hal_conf.h">
+              <configuration
+                Name="THUMB Debug"
+                build_exclude_from_build="No" />
+            </file>
+          </folder>
+        </folder>
+      </folder>
+    </folder>
+    <folder Name="System Files">
+      <file file_name="$(StudioDir)/source/thumb_crt0.s" />
+      <file file_name="$(TargetsDir)/STM32/STM32_Startup.s" />
+      <file file_name="$(TargetsDir)/STM32/$(DeviceVectorsFile)" />
+    </folder>
+    <file file_name="README" />
+  </project>
+  <configuration Name="THUMB Debug" inherited_configurations="THUMB;Debug" />
+  <configuration
+    Name="THUMB"
+    Platform="ARM"
+    arm_instruction_set="Thumb"
+    arm_library_instruction_set="Thumb"
+    c_preprocessor_definitions="__THUMB"
+    hidden="Yes" />
+  <configuration
+    Name="Debug"
+    c_preprocessor_definitions="DEBUG"
+    gcc_debugging_level="Level 3"
+    gcc_optimization_level="None"
+    hidden="Yes" />
+  <configuration
+    Name="THUMB Release"
+    inherited_configurations="THUMB;Release" />
+  <configuration
+    Name="Release"
+    c_preprocessor_definitions="NDEBUG"
+    gcc_debugging_level="Level 1"
+    gcc_optimization_level="Level 1"
+    hidden="Yes" />
+</solution>
