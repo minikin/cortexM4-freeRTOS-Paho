@@ -240,10 +240,10 @@ or ipconfigUSE_DHCP is set to 1 but a DHCP server cannot be contacted. */
 tasks.
 http://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_TCP/TCP_Echo_Clients.html
 http://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_TCP/UDP_Echo_Clients.html */
-#define configECHO_SERVER_ADDR0	192
-#define configECHO_SERVER_ADDR1 168
+#define configECHO_SERVER_ADDR0	127
+#define configECHO_SERVER_ADDR1 0
 #define configECHO_SERVER_ADDR2 0
-#define configECHO_SERVER_ADDR3 100
+#define configECHO_SERVER_ADDR3 1
 
 /* The address used as the root by the HTTP server. */
 #define configHTTP_ROOT "/websrc"

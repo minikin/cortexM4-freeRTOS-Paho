@@ -89,4 +89,6 @@ avianFreeRTOSPaho\ THUMB\ Debug/main.o: \
  /Users/Minikin/Documents/CrossWorks\ Projects/avianFreeRTOSPaho/stm32f4xx_hal_sd.h \
  /Users/Minikin/Documents/CrossWorks\ Projects/avianFreeRTOSPaho/stm32f4xx_ll_sdmmc.h \
  /Users/Minikin/Documents/CrossWorks\ Projects/avianFreeRTOSPaho/stm32f4xx_hal_tim.h \
- /Users/Minikin/Documents/CrossWorks\ Projects/avianFreeRTOSPaho/stm32f4xx_hal_tim_ex.h
+ /Users/Minikin/Documents/CrossWorks\ Projects/avianFreeRTOSPaho/stm32f4xx_hal_tim_ex.h \
+ /Applications/CrossWorks\ for\ ARM\ 3.7/include/cross_studio_io.h \
+ /Applications/CrossWorks\ for\ ARM\ 3.7/include/debugio.h

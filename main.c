@@ -103,6 +103,8 @@
 /* ST includes. */
 #include "stm32f4xx_hal.h"
 
+/* Cross Studio */
+#include <cross_studio_io.h>
 
 /* Set the following constants to 1 or 0 to define which tasks to include and
 exclude.  A WIDER RANGE OF EXAMPLES ARE AVAILABLE IN THE WIN32 DEMO:
@@ -298,7 +300,8 @@ static UBaseType_t ulNextRand;
 /* See http://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_TCP/TCP-IP_FAT_Examples_ST_STM32F407.html */
 int main( void )
 {
-        FreeRTOS_printf( ( "FreeRTOS is HERE!" ) );
+    debug_printf("FreeRTOS is HERE!");
+    FreeRTOS_printf( ( "FreeRTOS is HERE!" ) );
 	/* Miscellaneous initialisation including preparing the logging and seeding
 	the random number generator. */
 	prvMiscInitialisation();
@@ -311,6 +314,7 @@ int main( void )
 	are used if ipconfigUSE_DHCP is set to 0, or if ipconfigUSE_DHCP is set to 1
 	but a DHCP server cannot be	contacted. */
 	FreeRTOS_printf( ( "FreeRTOS_IPInit\n" ) );
+  debug_printf(ucIPAddress, ucNetMask, ucGatewayAddress, ucDNSServerAddress, ucMACAddress);
 	FreeRTOS_IPInit( ucIPAddress, ucNetMask, ucGatewayAddress, ucDNSServerAddress, ucMACAddress );
 
 	#if( ( mainCREATE_FTP_SERVER == 1 ) || ( mainCREATE_HTTP_SERVER == 1 ) )
