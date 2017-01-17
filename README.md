@@ -37,7 +37,7 @@ Switch to dir with your .bin file and run:
 --mcu STM32F407VG -gdb tcp::1234 -d unimp,guest_errors \
 --nographic --image /Developer/dlt/avianFreeRTOSPaho.bin \
 --semihosting-config enable=on,target=native \
---semihosting-cmdline test 1 2 3 exit
+--semihosting-cmdline test 1 2 3
 `
 
 If you have gdb you can try `gdb 127.0.0.1:1234`

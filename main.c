@@ -141,8 +141,8 @@ See http://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_TCP/TCP_Echo_Server.html
 #define mainCREATE_FTP_SERVER	0
 #define mainCREATE_HTTP_SERVER 	0
 #define mainCREATE_UDP_CLI_TASKS	0
-#define mainCREATE_TCP_ECHO_CLIENT_TASKS_SINGLE 0
-#define mainCREATE_SIMPLE_TCP_ECHO_SERVER 1
+#define mainCREATE_TCP_ECHO_CLIENT_TASKS_SINGLE 1
+#define mainCREATE_SIMPLE_TCP_ECHO_SERVER 0
 #define mainCREATE_UDP_LOGGING_TASK 0
 
 /* FTP and HTTP servers execute in the TCP server work task. */
