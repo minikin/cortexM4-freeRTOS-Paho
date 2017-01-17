@@ -27,17 +27,20 @@ Copyright (c) 2003-2016 Fabrice Bellard and the QEMU Project developers
 
 Then you can to continue.
 
-### Run emulation (WITHOUT NETWORK YET!)
+### Run emulation (NETWORK EXAMPLE NOT TESTED YET, BUT NETWORK INTERFACE IMPLEMENTED!)
 
 Switch to dir with your .bin file and run:
 
 `
-/Applications/GNU\ ARM\ Eclipse/QEMU/2.8.0-201612271623-dev/bin/qemu-system-gnuarmeclipse --verbose --verbose --board NetduinoPlus2 \
+/Applications/GNU\ ARM\ Eclipse/QEMU/2.8.0-201612271623-dev/bin/qemu-system-gnuarmeclipse --verbose --verbose \
+--board NetduinoPlus2 \
 --mcu STM32F407VG -gdb tcp::1234 -d unimp,guest_errors \
 --nographic --image /Developer/dlt/avianFreeRTOSPaho.bin \
 --semihosting-config enable=on,target=native \
---semihosting-cmdline test 1 2 3exit
+--semihosting-cmdline test 1 2 3 exit
 `
+
+If you have gdb you can try `gdb 127.0.0.1:1234`
 
 ### More detailed information how to run will be provided soon!
 
